@@ -1,0 +1,90 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@import "./element-plus.css";
+@import "./highlight-theme.css";
+@import "./base.css";
+
+html,
+body {
+  min-width: var(--page-width);
+}
+
+.container {
+  width: var(--page-width);
+  max-width: var(--page-width);
+}
+
+.el-drawer__header.drawer-header {
+  padding: var(--el-drawer-padding-primary);
+  margin-bottom: 0;
+}
+
+.form-check.form-switch.is-reverse {
+  padding-left: 0;
+  padding-right: 2.5em;
+}
+
+.form-check.form-switch.is-reverse .form-check-input {
+  float: right;
+  margin-left: 0;
+  margin-right: -2.5em;
+}
+
+.code-container {
+  font-family:
+    Consolas,
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Liberation Mono,
+    monospace,
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  white-space: pre;
+}
+
+.blob-line {
+  font-size: var(--el-font-size-base);
+  position: relative;
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  user-select: none;
+  color: #9a9a9a;
+}
+
+.blob-line::before {
+  content: attr(data-line-number);
+}
+
+.blob-code {
+  font-size: var(--el-font-size-base);
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: top;
+}
+
+ol.ol-double-brackets > li {
+  counter-increment: o-count;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+ol.ol-double-brackets > li::marker {
+  content: "(" counter(o-count) ") ";
+}
+
+.hover-item:hover {
+  background: var(--bs-secondary-bg-subtle);
+}

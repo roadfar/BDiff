@@ -1,0 +1,74 @@
+/* 全局变量和基础样式 */
+
+:root {
+  --diff-delete-outline: #c00000;
+  --diff-insert-outline: #548235;
+  --diff-copy-outline: #7030a0;
+  --diff-move-outline: #bf9000;
+  --diff-update-deep: #54aeff66;
+  --diff-c_update-deep: #54aeff66;
+  --diff-m_update-deep: #54aeff66;
+  --diff-update-outline: #2f5597;
+  --diff-c_update-outline: #2f5597;
+  --diff-m_update-outline: #2f5597;
+  --diff-merge-outline: #9bd039;
+  --diff-split-outline: #bc4c00;
+
+  --page-width: 1320px !important;
+}
+
+[data-bs-theme="light"] {
+  --bs-body-bg: #eaedf2;
+  --bs-secondary-bg: #fff;
+  --bs-secondary-bg-rgb: 255, 255, 255;
+
+  --diff-delete: #ffebe9;
+  --diff-delete-deep: #fbb7bf;
+  --diff-insert: #dafbe1;
+  --diff-insert-deep: #abf0bd;
+  --diff-copy: #f1e5ff;
+  --diff-move: #fff8c5;
+  --diff-update: #ddf4ff;
+  --diff-c_update: #ddf4ff;
+  --diff-m_update: #ddf4ff;
+  --diff-merge: #e3f2b5;
+  --diff-split: #f8d8e5;
+}
+
+[data-bs-theme="dark"] {
+  --diff-delete: #831525;
+  --diff-delete-deep: #fbb7bf66;
+  --diff-insert: #045600;
+  --diff-insert-deep: #abf0bd66;
+  --diff-copy: #4b005c;
+  --diff-move: #8f7300;
+  --diff-update: #005c9d;
+  --diff-c_update: #005c9d;
+  --diff-m_update: #005c9d;
+  --diff-merge: #008178;
+  --diff-split: #e3434d;
+}
+
+html[data-bs-theme="light"] {
+  color-scheme: light;
+}
+html[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  --el-font-size-base: 16px;
+}
+
+.clear-table {
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+}
+
+.d-flex > *,
+.d-inline-flex > * {
+  min-width: 0;
+}

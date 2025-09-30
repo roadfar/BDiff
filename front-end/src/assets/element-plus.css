@@ -1,0 +1,7 @@
+.el-dialog {
+  --el-dialog-bg-color: var(--bs-secondary-bg) !important;
+}
+
+.el-image-viewer__img {
+  object-fit: contain;
+}
