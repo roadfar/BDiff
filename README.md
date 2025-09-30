@@ -1,16 +1,16 @@
 BDiff is a browser-based file differencing tool that can identify precise differences between text files and generate corresponding edit scripts. It can be applied in scenarios such as code review and change analysis.
 
 ## I. 🎻 Main Features
-- Comprehensive Difference Identification: It can identify line deletions, line additions, line updates, line splits, line merges, block copies (including line updates), and block moves (including line updates).
-- Generate Edit Scripts: Produces edit scripts based on the identified differences.
-- Display Updated Difference Substrings: Shows the specific substrings that have been updated.
-- Edit Action Localization: Helps pinpoint the edit actions within the script.
-- View Before-and-After Mapped Lines/Blocks: Allows users to view the mapped lines or blocks before and after the changes.
-- Set Difference Display Modes: Offers alignment mode and compact mode for displaying differences.
-- Language Settings: Supports Chinese and English.
-- Theme Settings: Switch between light and dark themes for comfortable viewing.
-- Difference Option Settings: Customize comparison parameters for precise results.
-- Programming Language Highlighting: Syntax-aware highlighting for major programming languages.
+- **Comprehensive Difference Identification**: It can identify line deletions, line additions, line updates, line splits, line merges, block copies (including line updates), and block moves (including line updates).
+- **Generate Edit Scripts**: Produces edit scripts based on the identified differences.
+- **Display Updated Difference Substrings**: Shows the specific substrings that have been updated.
+- **Edit Action Localization**: Helps pinpoint the edit actions within the script.
+- **View Before-and-After Mapped Lines/Blocks**: Allows users to view the mapped lines or blocks before and after the changes.
+- **Set Difference Display Modes**: Offers alignment mode and compact mode for displaying differences.
+- **Language Settings**: Supports Chinese and English.
+- **Theme Settings**: Switch between light and dark themes for comfortable viewing.
+- **Difference Option Settings**: Customize comparison parameters for precise results.
+- **Programming Language Highlighting**: Syntax-aware highlighting for major programming languages.
 ## 2. 📜 Usage Instructions
 ### 2.1 Quick Start
 1. Visit the BDiff online tool at http://bdiff.net/.
