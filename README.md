@@ -1,6 +1,7 @@
 <img width="3281" height="941" alt="image" src="https://github.com/user-attachments/assets/e7d2dc5e-90bd-400f-8a3f-8ef8fbc4cf83" />
 
-Are you still struggling with reading such differencing results? **Now try BDiff!**
+Are you still struggling with reading such differencing results? **Now try** [**BDiff!**](http://www.bdiff.net/): 
+![home-assitant_a2a580f0fe7a1354a109eb062b5393fbb330f508-urls](https://github.com/user-attachments/assets/d91a5adc-93e0-490b-a8c1-9d3c63824e82)  
 
 BDiff is a browser-based file differencing tool that can identify precise differences between text files and generate corresponding edit scripts. It can be applied in scenarios such as code review and change analysis. The backend builds on a text-based differencing algorithm and are thus **language-independent**.
 
