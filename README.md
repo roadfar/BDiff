@@ -75,7 +75,7 @@ We welcome contributions through the following methods:
 ## 5. 📃 License
 This software is licensed under [Mulan Public License，Version 2](http://openworks.mulanos.cn/#/licenses/MulanPubL-v2) (Mulan PubL v2).
 ```
-Copyright (c) [2025] [National University of Defense Technology]
+Copyright (c) [2025] [Lu YAO]
 BDiff is licensed under Mulan PubL v2.
 You can use this software according to the terms and conditions of the Mulan PubL v2.
 You may obtain a copy of Mulan PubL v2 at:
