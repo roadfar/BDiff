@@ -7,5 +7,3 @@ PyJWT~=2.10.1
 cryptography
 requests~=2.32.3
 beautifulsoup4~=4.12.3
-numpy==1.26.4
-scipy==1.15.2
