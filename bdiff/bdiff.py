@@ -10,21 +10,21 @@
 
 """Core codes of BDiff."""
 
+from __future__ import annotations as _
+
 import copy
 import os
+import pprint
 import re
 import subprocess
 from collections import OrderedDict
-from pprint import pprint
-from typing import Dict, List, Optional, OrderedDict, Tuple
 
 import numpy as np
-from scipy.optimize import linear_sum_assignment
+from scipy import optimize
 
 
 def levenshtein_ratio(s1: str, s2: str) -> float:
-    """
-    Calculate normalized Levenshtein similarity ratio between two strings.
+    """Calculate normalized Levenshtein similarity ratio between two strings.
 
     Args:
         s1: First input string
@@ -57,16 +57,15 @@ def levenshtein_ratio(s1: str, s2: str) -> float:
 
 
 def W_BESTI_LINE(
-        src_line_no: int,
-        dest_line_no: int,
-        src_lines: list[str],
-        dest_lines: list[str],
-        ctx_length: int = 4,
-        line_sim_weight: float = 0.6,
-        sim_threshold: float = 0.5
+    src_line_no: int,
+    dest_line_no: int,
+    src_lines: list[str],
+    dest_lines: list[str],
+    ctx_length: int = 4,
+    line_sim_weight: float = 0.6,
+    sim_threshold: float = 0.5
 ) -> tuple[bool, float]:
-    """
-    Calculate line similarity considering both content and context [1].
+    """Calculate line similarity considering both content and context [1].
     [1] Reiss and P. Steven. 2008. Tracking source locations. In ACM/IEEE International Conference on Software Engineering.
 11.
     Args:
@@ -121,10 +120,11 @@ def W_BESTI_LINE(
     return True if synthetic_sim >= sim_threshold else False, round(synthetic_sim, 3)
 
 
-def construct_line_data(diffs: list[tuple[str, str]], indent_tabs_size: int) -> tuple[
-        OrderedDict, OrderedDict, list[str]]:
-    """
-    Construct structured data from diff results.
+def construct_line_data(
+    diffs: list[tuple[str, str]],
+    indent_tabs_size: int,
+) -> tuple[OrderedDict, OrderedDict, list[str]]:
+    """Construct structured data from diff results.
 
     Args:
         diffs: List of diff tuples (mode, line_content)
@@ -171,8 +171,8 @@ def construct_line_data(diffs: list[tuple[str, str]], indent_tabs_size: int) -> 
 
 
 def _find_same_left(a: str, b: str, /, min_len: int) -> int:
-    """
-    Count the number of characters in the maximum left-side matching region of two strings
+    """Count the number of characters in the maximum left-side matching region
+    of two strings.
 
     Args:
         a: First string
@@ -195,8 +195,7 @@ def _find_same_left(a: str, b: str, /, min_len: int) -> int:
 
 
 def _find_diff_area(a: str, b: str, /) -> tuple[int, int]:
-    """
-    Find the differing regions between two strings.
+    """Find the differing regions between two strings.
 
     Args:
         a: First string
@@ -214,8 +213,7 @@ def _find_diff_area(a: str, b: str, /) -> tuple[int, int]:
 
 
 def find_diff_area(a: str, b: str, /) -> list[list[list[int]] | list]:
-    """
-    Identify non-matching regions between two strings.
+    """Identify non-matching regions between two strings.
 
     Args:
         a: First string
@@ -239,8 +237,7 @@ def find_diff_area(a: str, b: str, /) -> list[list[list[int]] | list]:
 
 
 def construct_str_diff_data(src_tuple: tuple, dest_tuple: tuple) -> list[list[list[int]]]:
-    """
-    Construct difference data for string comparison.
+    """Construct difference data for string comparison.
 
     Args:
         src_tuple: Source string data tuple
@@ -269,8 +266,7 @@ def construct_str_diff_data(src_tuple: tuple, dest_tuple: tuple) -> list[list[li
 
 
 def compute_line_indent(diff_line: str, indent_tabs_size: int) -> tuple[int, int, int]:
-    """
-    Calculate indentation information for a line.
+    """Calculate indentation information for a line.
 
     Args:
         diff_line: Line to analyze
@@ -293,8 +289,7 @@ def compute_line_indent(diff_line: str, indent_tabs_size: int) -> tuple[int, int
 
 
 def is_pure_punctuation(s: str) -> bool:
-    """
-    Check if a string contains only punctuation characters.
+    """Check if a string contains only punctuation characters.
 
     Args:
         s: String to check
@@ -309,17 +304,16 @@ def is_pure_punctuation(s: str) -> bool:
 
 
 def pure_block_len(
-        block_length: int,
-        src_start: int,
-        src_lines_list: list[str],
-        added_start: int,
-        added_lines_list: list[str],
-        pure_mv_block_contain_punc: bool,
-        pure_cp_block_contain_punc: bool,
-        mode: str
+    block_length: int,
+    src_start: int,
+    src_lines_list: list[str],
+    added_start: int,
+    added_lines_list: list[str],
+    pure_mv_block_contain_punc: bool,
+    pure_cp_block_contain_punc: bool,
+    mode: str
 ) -> int:
-    """
-    Calculate effective block length excluding pure punctuation lines.
+    """Calculate effective block length excluding pure punctuation lines.
 
     Args:
         block_length: Total block length
@@ -350,17 +344,16 @@ def pure_block_len(
 
 
 def mapping_block_move(
-        src_lines: OrderedDict,
-        added_lines: OrderedDict,
-        src_all_lines: list[str],
-        dest_all_lines: list[str],
-        min_block_length: int,
-        diff_scripts: list[str],
-        pure_mv_block_contain_punc: bool,
-        count_mv_block_update: bool
+    src_lines: OrderedDict,
+    added_lines: OrderedDict,
+    src_all_lines: list[str],
+    dest_all_lines: list[str],
+    min_block_length: int,
+    diff_scripts: list[str],
+    pure_mv_block_contain_punc: bool,
+    count_mv_block_update: bool
 ) -> list[dict]:
-    """
-    Identify candidate moved blocks between source and destination.
+    """Identify candidate moved blocks between source and destination.
 
     Args:
         src_lines: Source lines dictionary
@@ -480,18 +473,17 @@ def mapping_block_move(
 
 
 def mapping_block_copy(
-        src_lines: OrderedDict,
-        added_lines: OrderedDict,
-        src_all_lines: list[str],
-        dest_all_lines: list[str],
-        min_copy_block_length: int,
-        hunks: list,
-        diff_scripts: list[str],
-        pure_cp_block_contain_punc: bool,
-        count_cp_block_update: bool
+    src_lines: OrderedDict,
+    added_lines: OrderedDict,
+    src_all_lines: list[str],
+    dest_all_lines: list[str],
+    min_copy_block_length: int,
+    hunks: list,
+    diff_scripts: list[str],
+    pure_cp_block_contain_punc: bool,
+    count_cp_block_update: bool
 ) -> list[dict]:
-    """
-    Identify candidate copied blocks between source and destination.
+    """Identify candidate copied blocks between source and destination.
 
     Args:
         src_lines: Source lines dictionary
@@ -628,14 +620,13 @@ def mapping_block_copy(
 
 
 def context_similarity(
-        src_start: int,
-        dest_start: int,
-        block: int,
-        src_lines: list[str],
-        dest_lines: list[str]
+    src_start: int,
+    dest_start: int,
+    block: int,
+    src_lines: list[str],
+    dest_lines: list[str]
 ) -> float:
-    """
-    Calculate similarity between contexts of source and destination blocks.
+    """Calculate similarity between contexts of source and destination blocks.
 
     Args:
         src_start: Source block start line
@@ -653,8 +644,7 @@ def context_similarity(
 
 
 def construct_context(start: int, block_length: int, lines: list[str]) -> str:
-    """
-    Construct context string for a given block.
+    """Construct context string for a given block.
 
     Args:
         start: Block start line
@@ -691,13 +681,12 @@ def construct_context(start: int, block_length: int, lines: list[str]) -> str:
 
 
 def judge_overlap_type(
-        assigned_start: int,
-        assigned_block_length: int,
-        overlapped_start: int,
-        overlapped_block_length: int
+    assigned_start: int,
+    assigned_block_length: int,
+    overlapped_start: int,
+    overlapped_block_length: int
 ) -> str | None:
-    """
-    Determine the type of overlap between two blocks.
+    """Determine the type of overlap between two blocks.
 
     Args:
         assigned_start: Start of first block
@@ -727,16 +716,15 @@ def judge_overlap_type(
 
 
 def km_compute(
-        mappings: list[dict],
-        src_all_lines: list[str],
-        dest_all_lines: list[str],
-        min_move_block_length: int = 2,
-        min_copy_block_length: int = 2,
-        pure_mv_block_contain_punc: bool = True,
-        pure_cp_block_contain_punc: bool = True
+    mappings: list[dict],
+    src_all_lines: list[str],
+    dest_all_lines: list[str],
+    min_move_block_length: int = 2,
+    min_copy_block_length: int = 2,
+    pure_mv_block_contain_punc: bool = True,
+    pure_cp_block_contain_punc: bool = True
 ) -> tuple[list[dict], list[dict]]:
-    """
-    Compute optimal block mappings using Kuhn-Munkres algorithm.
+    """Compute optimal block mappings using Kuhn-Munkres algorithm.
 
     Args:
         mappings: List of candidate mappings
@@ -811,7 +799,7 @@ def km_compute(
         else:
             cost_matrix[x][y] = mapping['weight']
 
-    row_ind, col_ind = linear_sum_assignment(cost_matrix)
+    row_ind, col_ind = optimize.linear_sum_assignment(cost_matrix)
     assignments = list(zip(row_ind, col_ind))
     km_matches = []
     remain_mappings = []
@@ -1355,8 +1343,7 @@ def km_compute(
 
 
 def generate_edit_action(mode: str, *args) -> str:
-    """
-    Generate human-readable edit action description.
+    """Generate human-readable edit action description.
 
     Args:
         mode: Type of edit action
@@ -1418,17 +1405,16 @@ def generate_edit_action(mode: str, *args) -> str:
 
 
 def generate_edit_scripts_from_match(
-    km_matches: List[Dict],
-    diff_scripts: List[str],
+    km_matches: list[dict],
+    diff_scripts: list[str],
     src_lines: OrderedDict,
     added_lines: OrderedDict,
-    splits_merges: List[List[List[int]]],
-    hunks: List[List[List[int]]],
+    splits_merges: list[list[list[int]]],
+    hunks: list[list[list[int]]],
     src_len: int,
     dest_len: int
-) -> List[Dict]:
-    """
-    Generate structured edit scripts from the results computed from the Kuhn-Munkres process.
+) -> list[dict]:
+    """Generate structured edit scripts from the results computed from the Kuhn-Munkres process.
 
 
     Args:
@@ -1628,9 +1614,8 @@ def generate_edit_scripts_from_match(
     return edit_scripts
 
 
-def generate_edit_scripts_from_diff(diff_scripts: List[str]) -> List[Dict]:
-    """
-    Generate basic edit scripts directly from raw diff action strings, when no line-level or block-level mappings were found.
+def generate_edit_scripts_from_diff(diff_scripts: list[str]) -> list[dict]:
+    """Generate basic edit scripts directly from raw diff action strings, when no line-level or block-level mappings were found.
 
     Args:
         diff_scripts: List of raw diff action strings, where each string starts with:
@@ -1668,9 +1653,8 @@ def generate_edit_scripts_from_diff(diff_scripts: List[str]) -> List[Dict]:
     return edit_scripts
 
 
-def exists_hunk_inter(changes: OrderedDict) -> Optional[Tuple[int, int, float]]:
-    """
-    Check for conflicting changes in a hunk and return the first conflicting change key.
+def exists_hunk_inter(changes: OrderedDict) -> tuple[int, int, float] | None:
+    """Check for conflicting changes in a hunk and return the first conflicting change key.
 
     A "conflicting change" is defined as a change entry (in the input OrderedDict)
     whose associated value (list of conflicting other changes) is non-empty. This function
@@ -1684,7 +1668,7 @@ def exists_hunk_inter(changes: OrderedDict) -> Optional[Tuple[int, int, float]]:
                    an empty list means no conflicts for that change
 
     Returns:
-        Optional[Tuple[int, int, float]]: The first conflicting change key if found;
+        tuple[int, int, float] | None: The first conflicting change key if found;
         None if no conflicting changes exist in the input OrderedDict.
     """
     for key, value in changes.items():
@@ -1694,15 +1678,14 @@ def exists_hunk_inter(changes: OrderedDict) -> Optional[Tuple[int, int, float]]:
 
 
 def mapping_line_update(
-    src_lines_list: List[str],
-    dest_lines_list: List[str],
-    hunks: List[List[List[int]]],
+    src_lines_list: list[str],
+    dest_lines_list: list[str],
+    hunks: list[list[list[int]]],
     ctx_length: int,
     line_sim_weight: float,
     sim_threshold: float
-) -> List[Dict]:
-    """
-    Identify single-line update mappings between source and destination diff hunks.
+) -> list[dict]:
+    """Identify single-line update mappings between source and destination diff hunks.
 
     Args:
         src_lines_list: Full list of lines from the source file (used for context calculation)
@@ -1758,13 +1741,12 @@ def mapping_line_update(
 
 
 def identify_splits_per_hunk(
-    hunk: List[List[int]],
+    hunk: list[list[int]],
     src_lines: OrderedDict,
     added_lines: OrderedDict,
     max_split_lines: int = 8
-) -> List[List[List[int]]]:
-    """
-    Detect line splits within a single diff hunk.
+) -> list[list[list[int]]]:
+    """Detect line splits within a single diff hunk.
 
     Args:
         hunk: A diff hunk represented as [[removed_source_lines], [added_dest_lines]],
@@ -1852,13 +1834,12 @@ def identify_splits_per_hunk(
 
 
 def identify_merges_per_hunk(
-    hunk: List[List[int]],
+    hunk: list[list[int]],
     src_lines: OrderedDict,
     added_lines: OrderedDict,
     max_merge_lines: int = 8
-) -> List[List[List[int]]]:
-    """
-    Identify line merges within a single diff hunk.
+) -> list[list[list[int]]]:
+    """Identify line merges within a single diff hunk.
 
     Args:
         hunk: A diff hunk represented as [[removed_source_lines], [added_dest_lines]],
@@ -1954,13 +1935,12 @@ def identify_merges_per_hunk(
 
 
 def mapping_merges(
-    hunks: List[List[List[int]]],
+    hunks: list[list[list[int]]],
     src_lines: OrderedDict,
     added_lines: OrderedDict,
     max_merge_lines: int
-) -> List[List[List[int]]]:
-    """
-    Identify all line merges.
+) -> list[list[list[int]]]:
+    """Identify all line merges.
 
     Args:
         hunks: List of all diff hunks, where each hunk is formatted as
@@ -1985,13 +1965,12 @@ def mapping_merges(
 
 
 def mapping_splits(
-    hunks: List[List[List[int]]],
+    hunks: list[list[list[int]]],
     src_lines: OrderedDict,
     added_lines: OrderedDict,
     max_split_lines: int
-) -> List[List[List[int]]]:
-    """
-    Identify all line splits.
+) -> list[list[list[int]]]:
+    """Identify all line splits.
 
     Args:
         hunks: List of all diff hunks, where each hunk is structured as
@@ -2016,11 +1995,10 @@ def mapping_splits(
 
 
 def copy_block_in_hunk(
-    copy_block: Dict,
-    hunks: List[List[List[int]]]
+    copy_block: dict,
+    hunks: list[list[list[int]]]
 ) -> bool:
-    """
-    Check if a copy block occurs within one hunk.
+    """Check if a copy block occurs within one hunk.
 
     Args:
         copy_block: Dictionary describing the copy block, must contain the following keys:
@@ -2049,10 +2027,9 @@ def relative_distance(
     src_line: int,
     dest_line: int,
     block_length: int,
-    diff_scripts: List[str]
+    diff_scripts: list[str]
 ) -> float:
-    """
-    Calculate the relative distance between a source block and its corresponding destination block.
+    """Calculate the relative distance between a source block and its corresponding destination block.
 
     Args:
         src_line: 1-indexed start line number of the source block in the source file
@@ -2097,8 +2074,8 @@ def relative_distance(
 def BDiff(
     src: str,
     dest: str,
-    src_lines_list: List[str],
-    dest_lines_list: List[str],
+    src_lines_list: list[str],
+    dest_lines_list: list[str],
     diff_algorithm: str = "Histogram",
     indent_tabs_size: int = 4,
     min_move_block_length: int = 2,
@@ -2117,9 +2094,8 @@ def BDiff(
     identify_update: bool = True,
     identify_split: bool = True,
     identify_merge: bool = True
-) -> List[Dict]:
-    """
-    Main function to generate edit scripts between two files.
+) -> list[dict]:
+    """Main function to generate edit scripts between two files.
 
     Args:
         src: File path to the source file (original file for comparison)
@@ -2146,7 +2122,7 @@ def BDiff(
         identify_merge: Whether to enable detection of line merge operations (default: True)
 
     Returns:
-        List[Dict]: Structured list of edit scripts. Each script dict contains:
+        list[dict]: Structured list of edit scripts. Each script dict contains:
                     - "mode": Operation type (e.g., "move", "copy", "update", "split", "merge", "insert", "delete")
                     - "src_line": 1-indexed start line in the source file (relevant for source-dependent ops like move/copy)
                     - "dest_line": 1-indexed start line in the destination file (relevant for dest-dependent ops like insert/update)
@@ -2244,8 +2220,7 @@ def BDiff(
 
 
 def BDiffFile(src: str, dest: str, **kwargs) -> None:
-    """
-    Command-line interface (CLI) wrapper to read source/destination files and generate semantic edit scripts.
+    """Command-line interface (CLI) wrapper to read source/destination files and generate semantic edit scripts.
 
     Args:
         src: File path to the source file (original file for comparison). Must be a valid, readable file path.
@@ -2267,4 +2242,4 @@ def BDiffFile(src: str, dest: str, **kwargs) -> None:
     src_infile.close()
     dest_infile.close()
 
-    pprint(BDiff(src, dest, src_lines_list, dest_lines_list, **kwargs))
+    pprint.pprint(BDiff(src, dest, src_lines_list, dest_lines_list, **kwargs))
