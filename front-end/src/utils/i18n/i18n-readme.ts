@@ -70,6 +70,7 @@ export const I18N_MESSAGES_README = {
     },
     chapter_licenses: {
       title: `📋 License`,
+      content: `<p>This software is licensed under <a href="http://openworks.org.cn/#/licenses/MulanPubL-v2">Mulan Public License，Version 2</a> (Mulan PubL v2).</p>`,
     },
     chapter_major_function: {
       title: `🎻 Main Features`,
@@ -164,6 +165,7 @@ export const I18N_MESSAGES_README = {
     },
     chapter_licenses: {
       title: `📋许可证`,
+      content: `本软件依据 <a href="http://openworks.org.cn/#/licenses/MulanPubL-v2">木兰公共许可证第二版</a>（Mulan PubL v2）进行授权许可。`,
     },
     chapter_major_function: {
       title: `🎻主要功能`,
