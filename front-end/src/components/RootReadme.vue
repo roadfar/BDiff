@@ -109,11 +109,11 @@ function scrollHandler() {
   if (firstIndex === -1) {
     return (activeHeading.value = null);
   }
-  if (tops[firstIndex] - window.innerHeight >= -10) {
+  if (tops[firstIndex]! - window.innerHeight >= -10) {
     const activeItem = headings.value[firstIndex - 1];
     return (activeHeading.value = activeItem || null);
   }
-  activeHeading.value = headings.value[firstIndex];
+  activeHeading.value = headings.value[firstIndex]!;
 }
 
 const CLASSIC_CASES = [
@@ -239,14 +239,14 @@ const showCasePreviewIndex = ref<number>(0);
             <span
               >3.{{ activeIndex + 1 }}
               {{
-                $t(`readme.chapter_classic_cases.case_titles.${CLASSIC_CASES[activeIndex].title}`)
+                $t(`readme.chapter_classic_cases.case_titles.${CLASSIC_CASES[activeIndex]!.title}`)
               }}</span
             >
           </div>
           <div class="text-center small">
             <span
-              >{{ CLASSIC_CASES[activeIndex].repo }}-{{ CLASSIC_CASES[activeIndex].sha }}-{{
-                CLASSIC_CASES[activeIndex].filename
+              >{{ CLASSIC_CASES[activeIndex]!.repo }}-{{ CLASSIC_CASES[activeIndex]!.sha }}-{{
+                CLASSIC_CASES[activeIndex]!.filename
               }}</span
             >
           </div>
