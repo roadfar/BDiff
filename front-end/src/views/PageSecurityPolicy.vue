@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { usePageStore } from "@/stores/page.ts";
 import ThemeToggleButton from "@/components/ThemeToggleButton.vue";
 import LanguageSelector from "@/components/LanguageSelector.vue";
-import router from "@/router";
-import { computed } from "vue";
-import { usePageStore } from "@/stores/page.ts";
 
+const router = useRouter();
 const pageStore = usePageStore();
 
 const logoSrc = computed(() =>

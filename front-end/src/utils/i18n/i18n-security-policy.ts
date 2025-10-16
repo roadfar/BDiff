@@ -25,7 +25,7 @@ export const I18N_SECURITY_POLICY = {
       `<h2>4. Changes to This Policy</h2>` +
       `<p>We may update this Privacy Policy occasionally to reflect changes in our data practices or legal requirements. When we make changes, we will revise the “Last Updated” date at the top of this policy. Your continued use of the Integration/Site after the update means you accept the revised policy.</p>` +
       `<h2>5. Contact Us</h2>` +
-      `<p>If you have questions, concerns, or requests about this Privacy Policy or your data, please contact us at: 839377654@qq.com.</p>` +
+      `<p>If you have questions, concerns, or requests about this Privacy Policy or your data, please contact us at: 839377654&#64;qq.com.</p>` +
       `<p>BDiff is committed to protecting your privacy and ensuring the Integration/Site is a secure, transparent tool for code diff analysis. We stand by our promise to never misuse or disclose your data.</p>`,
   },
   zh: {
@@ -54,7 +54,7 @@ export const I18N_SECURITY_POLICY = {
       `<h2>4. 政策变更</h2>` +
       `<p>我们可能会根据数据处理方式的调整或法律法规要求，不定期更新本隐私政策。当我们进行变更时，会修改本政策顶部的 “最后更新日期”。您在政策更新后继续使用集成工具 / 网站，即表示您接受经修订的政策。</p>` +
       `<h2>5. 联系我们</h2>` +
-      `<p>如您对本隐私政策或您的数据有任何疑问、担忧或请求，请通过以下方式联系我们：839377654@qq.com。</p>` +
+      `<p>如您对本隐私政策或您的数据有任何疑问、担忧或请求，请通过以下方式联系我们：839377654&#64;qq.com。</p>` +
       `<p>BDiff 致力于保护您的隐私，确保集成工具 / 网站成为安全、透明的代码差异分析工具。我们恪守承诺，绝不会滥用或披露您的数据。</p>`,
   },
 } as const;

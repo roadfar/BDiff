@@ -8,7 +8,7 @@ const router = createRouter({
       component: () => import("@/views/PageHome.vue"),
     },
     {
-      path: "/security-policy",
+      path: "/security_policy",
       component: () => import("@/views/PageSecurityPolicy.vue"),
     },
   ],
