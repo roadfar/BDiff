@@ -24,11 +24,9 @@ from scipy import optimize
 
 def levenshtein_ratio(s1: str, s2: str) -> float:
     """Calculate normalized Levenshtein similarity ratio between two strings.
-
     Args:
         s1: First input string
         s2: Second input string
-
     Returns:
         Similarity ratio in [0,1], where 1 means identical strings.
         Computed as (total_length - edit_distance)/total_length.
@@ -2182,15 +2180,7 @@ def bdiff(
                 if (split_merge[0][0] - update_change['src_start']) * (
                         split_merge[1][0] - update_change['added_start']) < 0 and update_change in update_mappings:
                     update_mappings.remove(update_change)
-        all_mappings = move_mappings[:]
-        for copy_mapping in copy_mappings:
-            for move_mapping in move_mappings:
-                if copy_mapping['src_start'] == move_mapping['src_start'] and copy_mapping['added_start'] == \
-                        move_mapping['added_start'] and copy_mapping['block_length'] == move_mapping['block_length']:
-                    break
-            else:
-                all_mappings.append(copy_mapping)
-        all_mappings = all_mappings + update_mappings
+        all_mappings = move_mappings + copy_mappings + update_mappings
         km_matches = []
         if all_mappings:
             km_matches, remaining_mappings = km_compute(all_mappings, src_lines_list, dest_lines_list,
