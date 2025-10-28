@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { usePageStore } from "@/stores/page.ts";
 import ThemeToggleButton from "@/components/ThemeToggleButton.vue";
 import LanguageSelector from "@/components/LanguageSelector.vue";
-import router from "@/router";
-import { computed } from "vue";
-import { usePageStore } from "@/stores/page.ts";
 
+const router = useRouter();
 const pageStore = usePageStore();
 
 const logoSrc = computed(() =>
@@ -15,7 +16,7 @@ const logoSrc = computed(() =>
 </script>
 
 <template>
-  <header ref="header-top" class="shadow-sm bg-body-secondary">
+  <header ref="header-top" class="shadow-sm bg-body-secondary sticky-top">
     <div class="px-5 py-3">
       <div class="position-relative d-flex align-items-center gap-3" :style="{ margin: '6px 0' }">
         <div class="flex-shrink-0 d-flex align-items-center">
@@ -43,7 +44,8 @@ const logoSrc = computed(() =>
     <div class="container">
       <div class="px-3 my-3 bg-body-secondary rounded-3 clear-table">
         <div class="my-3">
-          <div v-html="$t(`security_policy.content`)"></div>
+          <h1>{{ $t(`privacy_policy.title`) }}</h1>
+          <div v-html="$t(`privacy_policy.content`)"></div>
         </div>
       </div>
     </div>
