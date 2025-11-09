@@ -23,14 +23,6 @@ authors:
     given-names: "Michael R."
 title: "BDiff: Block-aware and Accurate Text-based Code Differencing"
 version: 1.0
+doi: https://arxiv.org/abs/2510.21094
 date-released: 2025-10
 url: "https://github.com/BDiff/BDiff"
-preferred-citation:
-  type: article
-  authors: *authors
-  title: "BDiff: Block-aware and Accurate Text-based Code Differencing"
-  year: 2025
-  eprint: "2510.21094"
-  archive-prefix: "arXiv"
-  primary-class: "cs.SE"
-  url: "https://arxiv.org/abs/2510.21094"
