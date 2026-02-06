@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d09e99d-67e5-4d19-91de-2ff50f6e6253" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CITATION.cff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.new.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bdiff/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bdiff/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bdiff/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bdiff/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bdiff/bdiff.py" beforeDir="false" afterPath="$PROJECT_DIR$/bdiff/bdiff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/BDiff- Block-aware and Accurate Text-based Code Differencing.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/eslint.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/eslint.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/upqiniu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/upqiniu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -33,30 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests for bdiff.test_bdiff.test_bdiff.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_bdiff.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.bdiff.executor&quot;: &quot;Run&quot;,
-    &quot;Python.demo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tbdiff (1).executor&quot;: &quot;Debug&quot;,
-    &quot;Python.test_bdiff.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/git-repos/BDiff/diff-cases/right_files&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\sws\\Documents\\GitHub\\BDiff\\front-end\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for bdiff.test_bdiff.test_bdiff.executor": "Run",
+    "Python tests.Python tests in test_bdiff.py.executor": "Run",
+    "Python.bdiff.executor": "Run",
+    "Python.demo.executor": "Run",
+    "Python.tbdiff (1).executor": "Debug",
+    "Python.test_bdiff.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/git-repos/BDiff",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\sws\\Documents\\GitHub\\BDiff\\front-end\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\git-repos\BDiff\diff-cases\right_files" />
@@ -71,7 +88,6 @@
   <component name="RunManager" selected="Python.demo">
     <configuration name="bdiff" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -93,7 +109,6 @@
     </configuration>
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -115,7 +130,6 @@
     </configuration>
     <configuration name="test_bdiff" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -137,7 +151,6 @@
     </configuration>
     <configuration name="Python tests for bdiff.test_bdiff" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -152,7 +165,6 @@
     </configuration>
     <configuration name="Python tests for bdiff.test_bdiff.test_bdiff" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -167,7 +179,6 @@
     </configuration>
     <configuration name="Python tests in test_bdiff.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BDiff" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -197,6 +208,7 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="9d09e99d-67e5-4d19-91de-2ff50f6e6253" name="更改" comment="" />
@@ -212,6 +224,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

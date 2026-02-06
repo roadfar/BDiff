@@ -70,7 +70,7 @@ scikit-learn/scikit-learn, 612312553118371289330f50b38653d1206246c0, gene.py
 ## 4. 📃 License
 This software is licensed under [Mulan Public License，Version 2](http://openworks.mulanos.cn/#/licenses/MulanPubL-v2) (Mulan PubL v2).
 ```
-Copyright (c) [2025] [Lu YAO]
+Copyright (c) [2025] [**]
 BDiff is licensed under Mulan PubL v2.
 You can use this software according to the terms and conditions of the Mulan PubL v2.
 You may obtain a copy of Mulan PubL v2 at:
